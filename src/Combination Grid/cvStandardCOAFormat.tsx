@@ -1,13 +1,13 @@
 import { HotTable } from '@handsontable/react';
 import { registerAllModules } from 'handsontable/registry';
 import 'handsontable/dist/handsontable.full.min.css';
-import { pvtCarStandardCOAFormat } from '../Data/Data';
+import { cvStandardCOAFormat } from '../Data/Data';
 import React, { useEffect, useRef, useState } from 'react';
 
 // register Handsontable's modules  
 registerAllModules();
 
-function PvtCarStandardCOA() {
+function CvStandardCOA() {
     const hotRef = useRef(null);
     const [output, setOutput] = useState('Data will load from server');
     const [isAutosave, setIsAutosave] = useState(false);
@@ -61,10 +61,10 @@ function PvtCarStandardCOA() {
     });
     return (
         <>
-
+        
             <HotTable
                 ref={hotRef}
-                data={pvtCarStandardCOAFormat}
+                data={cvStandardCOAFormat}
                 rowHeaders={true}
                 colHeaders={['Approval Sr No', 'Channel', 'Sub-Channel', 'Branch Location', 'Location Category', 'LOB', '(Product)', 'Business Type', 'Make', 'Model', 'Cubic Capacity', 'Segment', 'VehicleClass', 'Fuel Type', 'Section Text ', 'RTO State', 'RTO', 'With CPA', 'NCB', 'Vehicle Age Cat', 'Ensure Grid Applicability', 'Lower Discount', 'Upper Discount', 'Business Slab', 'Retentions %', 'Approval Grid for OD Portion', 'Approval Grid for TP Portion', 'Approval Grid for Per Policy ', 'Created By', 'Created By Code', 'Approved By', 'Approved By Code', 'Rejected By', 'Rejected By Code', 'Created On', 'Rejected On', 'Approved On', 'Modified On', 'Status']}
                 height="auto"
@@ -238,7 +238,7 @@ function PvtCarStandardCOA() {
                 }
             />
             <div className="controls">
-                <button id="export-file" onClick={(...args) => buttonClickCallback(...args)}>Download</button>
+            <button id="export-file" onClick={(...args) => buttonClickCallback(...args)}>Download</button>
             </div>
             <div className="controls">
                 <button id="save" className="button button--primary button--blue" onClick={(...args) => saveClickCallback(...args)}>Save data</button>
@@ -251,4 +251,4 @@ function PvtCarStandardCOA() {
         </>
     );
 }
-export default PvtCarStandardCOA;
+export default CvStandardCOA;

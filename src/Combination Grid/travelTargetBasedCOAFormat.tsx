@@ -1,13 +1,13 @@
 import { HotTable } from '@handsontable/react';
 import { registerAllModules } from 'handsontable/registry';
 import 'handsontable/dist/handsontable.full.min.css';
-import { pvtCarStandardCOAFormat } from '../Data/Data';
+import { travelTargetBasedCOAFormat } from '../Data/Data';
 import React, { useEffect, useRef, useState } from 'react';
 
 // register Handsontable's modules  
 registerAllModules();
 
-function PvtCarStandardCOA() {
+function TravelTargetBasedCOA() {
     const hotRef = useRef(null);
     const [output, setOutput] = useState('Data will load from server');
     const [isAutosave, setIsAutosave] = useState(false);
@@ -61,12 +61,12 @@ function PvtCarStandardCOA() {
     });
     return (
         <>
-
+        
             <HotTable
                 ref={hotRef}
-                data={pvtCarStandardCOAFormat}
+                data={travelTargetBasedCOAFormat}
                 rowHeaders={true}
-                colHeaders={['Approval Sr No', 'Channel', 'Sub-Channel', 'Branch Location', 'Location Category', 'LOB', '(Product)', 'Business Type', 'Make', 'Model', 'Cubic Capacity', 'Segment', 'VehicleClass', 'Fuel Type', 'Section Text ', 'RTO State', 'RTO', 'With CPA', 'NCB', 'Vehicle Age Cat', 'Ensure Grid Applicability', 'Lower Discount', 'Upper Discount', 'Business Slab', 'Retentions %', 'Approval Grid for OD Portion', 'Approval Grid for TP Portion', 'Approval Grid for Per Policy ', 'Created By', 'Created By Code', 'Approved By', 'Approved By Code', 'Rejected By', 'Rejected By Code', 'Created On', 'Rejected On', 'Approved On', 'Modified On', 'Status']}
+                colHeaders={}
                 height="auto"
                 fixedRowsTop={1}
                 licenseKey="non-commercial-and-evaluation" // for non-commercial use only
@@ -80,6 +80,18 @@ function PvtCarStandardCOA() {
                 columns={[
                     {
                         "data": "Approval Sr No",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "Producer Code",
+                        "readOnly": false
+                    },
+                    {
+                        "data": "Producer Name",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "Producer PAN",
                         "readOnly": true
                     },
                     {
@@ -99,6 +111,14 @@ function PvtCarStandardCOA() {
                         "readOnly": true
                     },
                     {
+                        "data": "Effectivefrom(Prod Mn date)",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "Effective till (Prod Mn date)",
+                        "readOnly": true
+                    },
+                    {
                         "data": "LOB",
                         "readOnly": true
                     },
@@ -111,79 +131,51 @@ function PvtCarStandardCOA() {
                         "readOnly": true
                     },
                     {
-                        "data": "Make",
+                        "data": "Sum Insured",
                         "readOnly": true
                     },
                     {
-                        "data": "Model",
+                        "data": "Segment (X,W,D)",
                         "readOnly": true
                     },
                     {
-                        "data": "Cubic Capacity",
+                        "data": "Times Renewed Ct Cat",
                         "readOnly": true
                     },
                     {
-                        "data": "Segment",
+                        "data": "LOB Loc. Cat (P,SP,NP)",
                         "readOnly": true
                     },
                     {
-                        "data": "VehicleClass",
+                        "data": "Product_cd",
                         "readOnly": true
                     },
                     {
-                        "data": "Fuel Type",
+                        "data": "Master Policy No",
                         "readOnly": true
                     },
                     {
-                        "data": "Section Text ",
+                        "data": "Master Policy Type",
                         "readOnly": true
                     },
                     {
-                        "data": "RTO State",
+                        "data": "Insured Age",
                         "readOnly": true
                     },
                     {
-                        "data": "RTO",
+                        "data": "Plan Name",
                         "readOnly": true
                     },
                     {
-                        "data": "With CPA",
+                        "data": "Addon - VAS",
                         "readOnly": true
                     },
                     {
-                        "data": "NCB",
+                        "data": "Trip Tenure Category",
                         "readOnly": true
                     },
                     {
-                        "data": "Vehicle Age Cat",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Ensure Grid Applicability",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Lower Discount",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Upper Discount",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Business Slab",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Retentions %",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approval Grid for OD Portion",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approval Grid for TP Portion",
+                        "data": "Approval Grid",
                         "readOnly": true
                     },
                     {
@@ -233,12 +225,28 @@ function PvtCarStandardCOA() {
                     {
                         "data": "Status",
                         "readOnly": true
+                    },
+                    {
+                        "data": "Mapped User",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "Mapped User Code",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "Reporting Manager",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "Reporting Manager Code",
+                        "readOnly": true
                     }
                 ]
                 }
             />
             <div className="controls">
-                <button id="export-file" onClick={(...args) => buttonClickCallback(...args)}>Download</button>
+            <button id="export-file" onClick={(...args) => buttonClickCallback(...args)}>Download</button>
             </div>
             <div className="controls">
                 <button id="save" className="button button--primary button--blue" onClick={(...args) => saveClickCallback(...args)}>Save data</button>
@@ -251,4 +259,4 @@ function PvtCarStandardCOA() {
         </>
     );
 }
-export default PvtCarStandardCOA;
+export default TravelTargetBasedCOA;

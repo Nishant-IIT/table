@@ -7613,7 +7613,7 @@ export const otherThanMotorMonthlyFix = [
     }
 ]
 
-export const otherThanMotorPolicySpecificConvertAllOfThisInCamelCase = [
+export const otherThanMotorPolicySpecific = [
     {
         "Policy Number": "0",
         "Producer Code": "1",

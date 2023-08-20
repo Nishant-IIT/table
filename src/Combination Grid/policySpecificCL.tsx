@@ -1,13 +1,13 @@
 import { HotTable } from '@handsontable/react';
 import { registerAllModules } from 'handsontable/registry';
 import 'handsontable/dist/handsontable.full.min.css';
-import { pvtCarStandardCOAFormat } from '../Data/Data';
+import { policySpecificCL } from '../Data/Data';
 import React, { useEffect, useRef, useState } from 'react';
 
 // register Handsontable's modules  
 registerAllModules();
 
-function PvtCarStandardCOA() {
+function PolicySpecificCL() {
     const hotRef = useRef(null);
     const [output, setOutput] = useState('Data will load from server');
     const [isAutosave, setIsAutosave] = useState(false);
@@ -61,12 +61,12 @@ function PvtCarStandardCOA() {
     });
     return (
         <>
-
+        
             <HotTable
                 ref={hotRef}
-                data={pvtCarStandardCOAFormat}
+                data={policySpecificCL}
                 rowHeaders={true}
-                colHeaders={['Approval Sr No', 'Channel', 'Sub-Channel', 'Branch Location', 'Location Category', 'LOB', '(Product)', 'Business Type', 'Make', 'Model', 'Cubic Capacity', 'Segment', 'VehicleClass', 'Fuel Type', 'Section Text ', 'RTO State', 'RTO', 'With CPA', 'NCB', 'Vehicle Age Cat', 'Ensure Grid Applicability', 'Lower Discount', 'Upper Discount', 'Business Slab', 'Retentions %', 'Approval Grid for OD Portion', 'Approval Grid for TP Portion', 'Approval Grid for Per Policy ', 'Created By', 'Created By Code', 'Approved By', 'Approved By Code', 'Rejected By', 'Rejected By Code', 'Created On', 'Rejected On', 'Approved On', 'Modified On', 'Status']}
+                colHeaders={['Policy Wise', 'Client Name', 'Premium', 'Producer Code', 'Producer Name', 'Producer PAN', 'Channel', 'Sub-Channel', 'Branch Location', 'Location Category', 'Prodcom Month', 'LOB1', 'Terrorism Cover', 'Approval Grid for Other Than Terrorism', 'Approval Grid for Terrorism', 'Approval Grid for Per Policy ', 'Created By', 'Created By Code', 'Approved By', 'Approved By Code', 'Rejected By', 'Rejected By Code', 'Created On', 'Rejected On', 'Approved On', 'Modified On', 'Status', 'Mapped User', 'Mapped User Code', 'Reporting Manager', 'Reporting Manager Code']}
                 height="auto"
                 fixedRowsTop={1}
                 licenseKey="non-commercial-and-evaluation" // for non-commercial use only
@@ -79,7 +79,27 @@ function PvtCarStandardCOA() {
 
                 columns={[
                     {
-                        "data": "Approval Sr No",
+                        "data": "Policy Wise",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "Client Name",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "Premium",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "Producer Code",
+                        "readOnly": false
+                    },
+                    {
+                        "data": "Producer Name",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "Producer PAN",
                         "readOnly": true
                     },
                     {
@@ -99,91 +119,23 @@ function PvtCarStandardCOA() {
                         "readOnly": true
                     },
                     {
-                        "data": "LOB",
+                        "data": "Prodcom Month",
                         "readOnly": true
                     },
                     {
-                        "data": "(Product)",
+                        "data": "LOB1",
                         "readOnly": true
                     },
                     {
-                        "data": "Business Type",
+                        "data": "Terrorism Cover",
                         "readOnly": true
                     },
                     {
-                        "data": "Make",
+                        "data": "Approval Grid for Other Than Terrorism",
                         "readOnly": true
                     },
                     {
-                        "data": "Model",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Cubic Capacity",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Segment",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "VehicleClass",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Fuel Type",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Section Text ",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "RTO State",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "RTO",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "With CPA",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "NCB",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Vehicle Age Cat",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Ensure Grid Applicability",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Lower Discount",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Upper Discount",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Business Slab",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Retentions %",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approval Grid for OD Portion",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approval Grid for TP Portion",
+                        "data": "Approval Grid for Terrorism",
                         "readOnly": true
                     },
                     {
@@ -233,12 +185,28 @@ function PvtCarStandardCOA() {
                     {
                         "data": "Status",
                         "readOnly": true
+                    },
+                    {
+                        "data": "Mapped User",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "Mapped User Code",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "Reporting Manager",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "Reporting Manager Code",
+                        "readOnly": true
                     }
                 ]
                 }
             />
             <div className="controls">
-                <button id="export-file" onClick={(...args) => buttonClickCallback(...args)}>Download</button>
+            <button id="export-file" onClick={(...args) => buttonClickCallback(...args)}>Download</button>
             </div>
             <div className="controls">
                 <button id="save" className="button button--primary button--blue" onClick={(...args) => saveClickCallback(...args)}>Save data</button>
@@ -251,4 +219,4 @@ function PvtCarStandardCOA() {
         </>
     );
 }
-export default PvtCarStandardCOA;
+export default PolicySpecificCL;

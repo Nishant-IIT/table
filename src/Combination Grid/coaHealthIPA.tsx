@@ -1,13 +1,13 @@
 import { HotTable } from '@handsontable/react';
 import { registerAllModules } from 'handsontable/registry';
 import 'handsontable/dist/handsontable.full.min.css';
-import { pvtCarStandardCOAFormat } from '../Data/Data';
+import { coaHealthIPA } from '../Data/Data';
 import React, { useEffect, useRef, useState } from 'react';
 
 // register Handsontable's modules  
 registerAllModules();
 
-function PvtCarStandardCOA() {
+function CoaHealthIPA() {
     const hotRef = useRef(null);
     const [output, setOutput] = useState('Data will load from server');
     const [isAutosave, setIsAutosave] = useState(false);
@@ -61,12 +61,12 @@ function PvtCarStandardCOA() {
     });
     return (
         <>
-
+        
             <HotTable
                 ref={hotRef}
-                data={pvtCarStandardCOAFormat}
+                data={coaHealthIPA}
                 rowHeaders={true}
-                colHeaders={['Approval Sr No', 'Channel', 'Sub-Channel', 'Branch Location', 'Location Category', 'LOB', '(Product)', 'Business Type', 'Make', 'Model', 'Cubic Capacity', 'Segment', 'VehicleClass', 'Fuel Type', 'Section Text ', 'RTO State', 'RTO', 'With CPA', 'NCB', 'Vehicle Age Cat', 'Ensure Grid Applicability', 'Lower Discount', 'Upper Discount', 'Business Slab', 'Retentions %', 'Approval Grid for OD Portion', 'Approval Grid for TP Portion', 'Approval Grid for Per Policy ', 'Created By', 'Created By Code', 'Approved By', 'Approved By Code', 'Rejected By', 'Rejected By Code', 'Created On', 'Rejected On', 'Approved On', 'Modified On', 'Status']}
+                colHeaders={['Special Approval Grid Master (Health & IPA)', 'column_1', 'column_2', 'column_3', 'column_4', 'column_5', 'Health Payout Slab                                                  Health Payout Slab                                                  Health Payout Slab                                                  Health Payout Slab                                                  Health Payout Slab                                                  Health Payout Slab', 'column_7', 'column_8', 'column_9', 'column_10', 'column_11', 'column_12', 'column_13', 'column_14', 'column_15', 'column_16', 'column_17', 'column_18', 'column_19', 'column_20', 'column_21', 'column_22', 'column_23', 'column_24', 'column_25', 'column_26', 'column_27', 'column_28', 'column_29', 'column_30', 'column_31', 'column_32', 'column_33', 'column_34', 'column_35', 'column_36', 'column_37', 'column_38', 'column_39', 'column_40', 'column_41', 'column_42', 'column_43', 'column_44', 'column_45', 'column_46', 'column_47', 'column_48', 'column_49', 'column_50', 'IPA', 'column_52']}
                 height="auto"
                 fixedRowsTop={1}
                 licenseKey="non-commercial-and-evaluation" // for non-commercial use only
@@ -79,166 +79,222 @@ function PvtCarStandardCOA() {
 
                 columns={[
                     {
-                        "data": "Approval Sr No",
+                        "data": "Special Approval Grid Master (Health & IPA)",
                         "readOnly": true
                     },
                     {
-                        "data": "Channel",
+                        "data": "column_1",
                         "readOnly": true
                     },
                     {
-                        "data": "Sub-Channel",
+                        "data": "column_2",
                         "readOnly": true
                     },
                     {
-                        "data": "Branch Location",
+                        "data": "column_3",
                         "readOnly": true
                     },
                     {
-                        "data": "Location Category",
+                        "data": "column_4",
                         "readOnly": true
                     },
                     {
-                        "data": "LOB",
+                        "data": "column_5",
                         "readOnly": true
                     },
                     {
-                        "data": "(Product)",
+                        "data": "Health Payout Slab                                                  Health Payout Slab                                                  Health Payout Slab                                                  Health Payout Slab                                                  Health Payout Slab                                                  Health Payout Slab",
                         "readOnly": true
                     },
                     {
-                        "data": "Business Type",
+                        "data": "column_7",
                         "readOnly": true
                     },
                     {
-                        "data": "Make",
+                        "data": "column_8",
                         "readOnly": true
                     },
                     {
-                        "data": "Model",
+                        "data": "column_9",
                         "readOnly": true
                     },
                     {
-                        "data": "Cubic Capacity",
+                        "data": "column_10",
                         "readOnly": true
                     },
                     {
-                        "data": "Segment",
+                        "data": "column_11",
                         "readOnly": true
                     },
                     {
-                        "data": "VehicleClass",
+                        "data": "column_12",
                         "readOnly": true
                     },
                     {
-                        "data": "Fuel Type",
+                        "data": "column_13",
                         "readOnly": true
                     },
                     {
-                        "data": "Section Text ",
+                        "data": "column_14",
                         "readOnly": true
                     },
                     {
-                        "data": "RTO State",
+                        "data": "column_15",
                         "readOnly": true
                     },
                     {
-                        "data": "RTO",
+                        "data": "column_16",
                         "readOnly": true
                     },
                     {
-                        "data": "With CPA",
+                        "data": "column_17",
                         "readOnly": true
                     },
                     {
-                        "data": "NCB",
+                        "data": "column_18",
                         "readOnly": true
                     },
                     {
-                        "data": "Vehicle Age Cat",
+                        "data": "column_19",
                         "readOnly": true
                     },
                     {
-                        "data": "Ensure Grid Applicability",
+                        "data": "column_20",
                         "readOnly": true
                     },
                     {
-                        "data": "Lower Discount",
+                        "data": "column_21",
                         "readOnly": true
                     },
                     {
-                        "data": "Upper Discount",
+                        "data": "column_22",
                         "readOnly": true
                     },
                     {
-                        "data": "Business Slab",
+                        "data": "column_23",
                         "readOnly": true
                     },
                     {
-                        "data": "Retentions %",
+                        "data": "column_24",
                         "readOnly": true
                     },
                     {
-                        "data": "Approval Grid for OD Portion",
+                        "data": "column_25",
                         "readOnly": true
                     },
                     {
-                        "data": "Approval Grid for TP Portion",
+                        "data": "column_26",
                         "readOnly": true
                     },
                     {
-                        "data": "Approval Grid for Per Policy ",
+                        "data": "column_27",
                         "readOnly": true
                     },
                     {
-                        "data": "Created By",
+                        "data": "column_28",
                         "readOnly": true
                     },
                     {
-                        "data": "Created By Code",
+                        "data": "column_29",
                         "readOnly": true
                     },
                     {
-                        "data": "Approved By",
+                        "data": "column_30",
                         "readOnly": true
                     },
                     {
-                        "data": "Approved By Code",
+                        "data": "column_31",
                         "readOnly": true
                     },
                     {
-                        "data": "Rejected By",
+                        "data": "column_32",
                         "readOnly": true
                     },
                     {
-                        "data": "Rejected By Code",
+                        "data": "column_33",
                         "readOnly": true
                     },
                     {
-                        "data": "Created On",
+                        "data": "column_34",
                         "readOnly": true
                     },
                     {
-                        "data": "Rejected On",
+                        "data": "column_35",
                         "readOnly": true
                     },
                     {
-                        "data": "Approved On",
+                        "data": "column_36",
                         "readOnly": true
                     },
                     {
-                        "data": "Modified On",
+                        "data": "column_37",
                         "readOnly": true
                     },
                     {
-                        "data": "Status",
+                        "data": "column_38",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "column_39",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "column_40",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "column_41",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "column_42",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "column_43",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "column_44",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "column_45",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "column_46",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "column_47",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "column_48",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "column_49",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "column_50",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "IPA",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "column_52",
                         "readOnly": true
                     }
                 ]
                 }
             />
             <div className="controls">
-                <button id="export-file" onClick={(...args) => buttonClickCallback(...args)}>Download</button>
+            <button id="export-file" onClick={(...args) => buttonClickCallback(...args)}>Download</button>
             </div>
             <div className="controls">
                 <button id="save" className="button button--primary button--blue" onClick={(...args) => saveClickCallback(...args)}>Save data</button>
@@ -251,4 +307,4 @@ function PvtCarStandardCOA() {
         </>
     );
 }
-export default PvtCarStandardCOA;
+export default CoaHealthIPA;

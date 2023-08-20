@@ -1,13 +1,13 @@
 import { HotTable } from '@handsontable/react';
 import { registerAllModules } from 'handsontable/registry';
 import 'handsontable/dist/handsontable.full.min.css';
-import { pvtCarStandardCOAFormat } from '../Data/Data';
+import { coaCL } from '../Data/Data';
 import React, { useEffect, useRef, useState } from 'react';
 
 // register Handsontable's modules  
 registerAllModules();
 
-function PvtCarStandardCOA() {
+function CoaCL() {
     const hotRef = useRef(null);
     const [output, setOutput] = useState('Data will load from server');
     const [isAutosave, setIsAutosave] = useState(false);
@@ -61,12 +61,12 @@ function PvtCarStandardCOA() {
     });
     return (
         <>
-
+        
             <HotTable
                 ref={hotRef}
-                data={pvtCarStandardCOAFormat}
+                data={coaCL}
                 rowHeaders={true}
-                colHeaders={['Approval Sr No', 'Channel', 'Sub-Channel', 'Branch Location', 'Location Category', 'LOB', '(Product)', 'Business Type', 'Make', 'Model', 'Cubic Capacity', 'Segment', 'VehicleClass', 'Fuel Type', 'Section Text ', 'RTO State', 'RTO', 'With CPA', 'NCB', 'Vehicle Age Cat', 'Ensure Grid Applicability', 'Lower Discount', 'Upper Discount', 'Business Slab', 'Retentions %', 'Approval Grid for OD Portion', 'Approval Grid for TP Portion', 'Approval Grid for Per Policy ', 'Created By', 'Created By Code', 'Approved By', 'Approved By Code', 'Rejected By', 'Rejected By Code', 'Created On', 'Rejected On', 'Approved On', 'Modified On', 'Status']}
+                colHeaders={['Producer code', 'Producer name', 'PAN No', 'Vertical', 'Effective from the', 'month (Prodcom Month)', 'Effective till the', 'month (Prodcom Month)', 'AIG Combined - Preferred', 'AIG Combined - Others', 'AIG Combined-WC', 'Property & Energy - Preferred', 'Property & Energy - Others', 'Construction (CAR/EAR)', 'CPM', 'Marine Open', 'Marine Specific', 'Casualty', 'Financial Lines', 'Home', 'Trade Credit', 'Aviation', 'BTA', 'GMC', 'GPA']}
                 height="auto"
                 fixedRowsTop={1}
                 licenseKey="non-commercial-and-evaluation" // for non-commercial use only
@@ -79,166 +79,110 @@ function PvtCarStandardCOA() {
 
                 columns={[
                     {
-                        "data": "Approval Sr No",
+                        "data": "Producer code",
                         "readOnly": true
                     },
                     {
-                        "data": "Channel",
+                        "data": "Producer name",
                         "readOnly": true
                     },
                     {
-                        "data": "Sub-Channel",
+                        "data": "PAN No",
                         "readOnly": true
                     },
                     {
-                        "data": "Branch Location",
+                        "data": "Vertical",
                         "readOnly": true
                     },
                     {
-                        "data": "Location Category",
+                        "data": "Effective from the",
                         "readOnly": true
                     },
                     {
-                        "data": "LOB",
+                        "data": "month (Prodcom Month)",
                         "readOnly": true
                     },
                     {
-                        "data": "(Product)",
+                        "data": "Effective till the",
                         "readOnly": true
                     },
                     {
-                        "data": "Business Type",
+                        "data": "month (Prodcom Month)",
                         "readOnly": true
                     },
                     {
-                        "data": "Make",
+                        "data": "AIG Combined - Preferred",
                         "readOnly": true
                     },
                     {
-                        "data": "Model",
+                        "data": "AIG Combined - Others",
                         "readOnly": true
                     },
                     {
-                        "data": "Cubic Capacity",
+                        "data": "AIG Combined-WC",
                         "readOnly": true
                     },
                     {
-                        "data": "Segment",
+                        "data": "Property & Energy - Preferred",
                         "readOnly": true
                     },
                     {
-                        "data": "VehicleClass",
+                        "data": "Property & Energy - Others",
                         "readOnly": true
                     },
                     {
-                        "data": "Fuel Type",
+                        "data": "Construction (CAR/EAR)",
                         "readOnly": true
                     },
                     {
-                        "data": "Section Text ",
+                        "data": "CPM",
                         "readOnly": true
                     },
                     {
-                        "data": "RTO State",
+                        "data": "Marine Open",
                         "readOnly": true
                     },
                     {
-                        "data": "RTO",
+                        "data": "Marine Specific",
                         "readOnly": true
                     },
                     {
-                        "data": "With CPA",
+                        "data": "Casualty",
                         "readOnly": true
                     },
                     {
-                        "data": "NCB",
+                        "data": "Financial Lines",
                         "readOnly": true
                     },
                     {
-                        "data": "Vehicle Age Cat",
+                        "data": "Home",
                         "readOnly": true
                     },
                     {
-                        "data": "Ensure Grid Applicability",
+                        "data": "Trade Credit",
                         "readOnly": true
                     },
                     {
-                        "data": "Lower Discount",
+                        "data": "Aviation",
                         "readOnly": true
                     },
                     {
-                        "data": "Upper Discount",
+                        "data": "BTA",
                         "readOnly": true
                     },
                     {
-                        "data": "Business Slab",
+                        "data": "GMC",
                         "readOnly": true
                     },
                     {
-                        "data": "Retentions %",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approval Grid for OD Portion",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approval Grid for TP Portion",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approval Grid for Per Policy ",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Created By",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Created By Code",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approved By",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approved By Code",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Rejected By",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Rejected By Code",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Created On",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Rejected On",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approved On",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Modified On",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Status",
+                        "data": "GPA",
                         "readOnly": true
                     }
                 ]
                 }
             />
             <div className="controls">
-                <button id="export-file" onClick={(...args) => buttonClickCallback(...args)}>Download</button>
+            <button id="export-file" onClick={(...args) => buttonClickCallback(...args)}>Download</button>
             </div>
             <div className="controls">
                 <button id="save" className="button button--primary button--blue" onClick={(...args) => saveClickCallback(...args)}>Save data</button>
@@ -251,4 +195,4 @@ function PvtCarStandardCOA() {
         </>
     );
 }
-export default PvtCarStandardCOA;
+export default CoaCL;
