@@ -1,13 +1,13 @@
 import { HotTable } from '@handsontable/react';
 import { registerAllModules } from 'handsontable/registry';
 import 'handsontable/dist/handsontable.full.min.css';
-import { pvtCarStandardCOAFormat } from '../Data/Data';
+import { clStandardCOAFormat } from '../Data/Data';
 import React, { useEffect, useRef, useState } from 'react';
 
 // register Handsontable's modules  
 registerAllModules();
 
-function PvtCarStandardCOA() {
+function ClStandardCOA() {
     const hotRef = useRef(null);
     const [output, setOutput] = useState('Data will load from server');
     const [isAutosave, setIsAutosave] = useState(false);
@@ -61,12 +61,12 @@ function PvtCarStandardCOA() {
     });
     return (
         <>
-
+        
             <HotTable
                 ref={hotRef}
-                data={pvtCarStandardCOAFormat}
+                data={clStandardCOAFormat}
                 rowHeaders={true}
-                colHeaders={['Approval Sr No', 'Channel', 'Sub-Channel', 'Branch Location', 'Location Category', 'LOB', '(Product)', 'Business Type', 'Make', 'Model', 'Cubic Capacity', 'Segment', 'VehicleClass', 'Fuel Type', 'Section Text ', 'RTO State', 'RTO', 'With CPA', 'NCB', 'Vehicle Age Cat', 'Ensure Grid Applicability', 'Lower Discount', 'Upper Discount', 'Business Slab', 'Retentions %', 'Approval Grid for OD Portion', 'Approval Grid for TP Portion', 'Approval Grid for Per Policy ', 'Created By', 'Created By Code', 'Approved By', 'Approved By Code', 'Rejected By', 'Rejected By Code', 'Created On', 'Rejected On', 'Approved On', 'Modified On', 'Status']}
+                colHeaders={['Approval Sr No', 'Channel', 'Sub-Channel', 'Branch Location', 'Location Category', 'LOB', '(Product)', 'Business Type', 'Sum Insured', 'PSL (percending Limit)', 'LOB Occupancy Risk (P,NP)', 'SME/NON SME', 'No of lives', 'Terrorism Cover', 'Lower Discount', 'Upper Discount', 'GPW (x to y, >y)', 'Retention % (x to y, >y)', 'Approval Grid for Other Than Terrorism', 'Approval Grid for Terrorism', 'Approval Grid for Per Policy ', 'Created By', 'Created By Code', 'Approved By', 'Approved By Code', 'Rejected By', 'Rejected By Code', 'Created On', 'Rejected On', 'Approved On', 'Modified On', 'Status']}
                 height="auto"
                 fixedRowsTop={1}
                 licenseKey="non-commercial-and-evaluation" // for non-commercial use only
@@ -111,55 +111,27 @@ function PvtCarStandardCOA() {
                         "readOnly": true
                     },
                     {
-                        "data": "Make",
+                        "data": "Sum Insured",
                         "readOnly": true
                     },
                     {
-                        "data": "Model",
+                        "data": "PSL (percending Limit)",
                         "readOnly": true
                     },
                     {
-                        "data": "Cubic Capacity",
+                        "data": "LOB Occupancy Risk (P,NP)",
                         "readOnly": true
                     },
                     {
-                        "data": "Segment",
+                        "data": "SME/NON SME",
                         "readOnly": true
                     },
                     {
-                        "data": "VehicleClass",
+                        "data": "No of lives",
                         "readOnly": true
                     },
                     {
-                        "data": "Fuel Type",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Section Text ",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "RTO State",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "RTO",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "With CPA",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "NCB",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Vehicle Age Cat",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Ensure Grid Applicability",
+                        "data": "Terrorism Cover",
                         "readOnly": true
                     },
                     {
@@ -171,19 +143,19 @@ function PvtCarStandardCOA() {
                         "readOnly": true
                     },
                     {
-                        "data": "Business Slab",
+                        "data": "GPW (x to y, >y)",
                         "readOnly": true
                     },
                     {
-                        "data": "Retentions %",
+                        "data": "Retention % (x to y, >y)",
                         "readOnly": true
                     },
                     {
-                        "data": "Approval Grid for OD Portion",
+                        "data": "Approval Grid for Other Than Terrorism",
                         "readOnly": true
                     },
                     {
-                        "data": "Approval Grid for TP Portion",
+                        "data": "Approval Grid for Terrorism",
                         "readOnly": true
                     },
                     {
@@ -238,7 +210,7 @@ function PvtCarStandardCOA() {
                 }
             />
             <div className="controls">
-                <button id="export-file" onClick={(...args) => buttonClickCallback(...args)}>Download</button>
+            <button id="export-file" onClick={(...args) => buttonClickCallback(...args)}>Download</button>
             </div>
             <div className="controls">
                 <button id="save" className="button button--primary button--blue" onClick={(...args) => saveClickCallback(...args)}>Save data</button>
@@ -251,4 +223,4 @@ function PvtCarStandardCOA() {
         </>
     );
 }
-export default PvtCarStandardCOA;
+export default ClStandardCOA;

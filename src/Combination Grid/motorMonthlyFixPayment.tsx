@@ -1,13 +1,13 @@
 import { HotTable } from '@handsontable/react';
 import { registerAllModules } from 'handsontable/registry';
 import 'handsontable/dist/handsontable.full.min.css';
-import { pvtCarStandardCOAFormat } from '../Data/Data';
+import { motorMonthlyFixPayment } from '../Data/Data';
 import React, { useEffect, useRef, useState } from 'react';
 
 // register Handsontable's modules  
 registerAllModules();
 
-function PvtCarStandardCOA() {
+function MotorMonthlyFixPayment() {
     const hotRef = useRef(null);
     const [output, setOutput] = useState('Data will load from server');
     const [isAutosave, setIsAutosave] = useState(false);
@@ -61,12 +61,12 @@ function PvtCarStandardCOA() {
     });
     return (
         <>
-
+        
             <HotTable
                 ref={hotRef}
-                data={pvtCarStandardCOAFormat}
+                data={motorMonthlyFixPayment}
                 rowHeaders={true}
-                colHeaders={['Approval Sr No', 'Channel', 'Sub-Channel', 'Branch Location', 'Location Category', 'LOB', '(Product)', 'Business Type', 'Make', 'Model', 'Cubic Capacity', 'Segment', 'VehicleClass', 'Fuel Type', 'Section Text ', 'RTO State', 'RTO', 'With CPA', 'NCB', 'Vehicle Age Cat', 'Ensure Grid Applicability', 'Lower Discount', 'Upper Discount', 'Business Slab', 'Retentions %', 'Approval Grid for OD Portion', 'Approval Grid for TP Portion', 'Approval Grid for Per Policy ', 'Created By', 'Created By Code', 'Approved By', 'Approved By Code', 'Rejected By', 'Rejected By Code', 'Created On', 'Rejected On', 'Approved On', 'Modified On', 'Status']}
+                colHeaders={['Approval Sr No', 'Producer code', 'Producer name', 'Branch Code', 'Branch Location', 'Location Category', 'Channel', 'Effective from the', 'month (Prodcom Month)', 'Effective till the', 'month (Prodcom Month)', 'Monthly Fixed Pay', 'Tool %', 'Non Tool %', 'GV %', 'TP %', 'Sum of %']}
                 height="auto"
                 fixedRowsTop={1}
                 licenseKey="non-commercial-and-evaluation" // for non-commercial use only
@@ -83,11 +83,15 @@ function PvtCarStandardCOA() {
                         "readOnly": true
                     },
                     {
-                        "data": "Channel",
+                        "data": "Producer code",
                         "readOnly": true
                     },
                     {
-                        "data": "Sub-Channel",
+                        "data": "Producer name",
+                        "readOnly": true
+                    },
+                    {
+                        "data": "Branch Code",
                         "readOnly": true
                     },
                     {
@@ -99,146 +103,54 @@ function PvtCarStandardCOA() {
                         "readOnly": true
                     },
                     {
-                        "data": "LOB",
+                        "data": "Channel",
                         "readOnly": true
                     },
                     {
-                        "data": "(Product)",
+                        "data": "Effective from the",
                         "readOnly": true
                     },
                     {
-                        "data": "Business Type",
+                        "data": "month (Prodcom Month)",
                         "readOnly": true
                     },
                     {
-                        "data": "Make",
+                        "data": "Effective till the",
                         "readOnly": true
                     },
                     {
-                        "data": "Model",
+                        "data": "month (Prodcom Month)",
                         "readOnly": true
                     },
                     {
-                        "data": "Cubic Capacity",
+                        "data": "Monthly Fixed Pay",
                         "readOnly": true
                     },
                     {
-                        "data": "Segment",
+                        "data": "Tool %",
                         "readOnly": true
                     },
                     {
-                        "data": "VehicleClass",
+                        "data": "Non Tool %",
                         "readOnly": true
                     },
                     {
-                        "data": "Fuel Type",
+                        "data": "GV %",
                         "readOnly": true
                     },
                     {
-                        "data": "Section Text ",
+                        "data": "TP %",
                         "readOnly": true
                     },
                     {
-                        "data": "RTO State",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "RTO",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "With CPA",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "NCB",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Vehicle Age Cat",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Ensure Grid Applicability",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Lower Discount",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Upper Discount",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Business Slab",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Retentions %",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approval Grid for OD Portion",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approval Grid for TP Portion",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approval Grid for Per Policy ",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Created By",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Created By Code",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approved By",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approved By Code",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Rejected By",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Rejected By Code",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Created On",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Rejected On",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approved On",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Modified On",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Status",
+                        "data": "Sum of %",
                         "readOnly": true
                     }
                 ]
                 }
             />
             <div className="controls">
-                <button id="export-file" onClick={(...args) => buttonClickCallback(...args)}>Download</button>
+            <button id="export-file" onClick={(...args) => buttonClickCallback(...args)}>Download</button>
             </div>
             <div className="controls">
                 <button id="save" className="button button--primary button--blue" onClick={(...args) => saveClickCallback(...args)}>Save data</button>
@@ -251,4 +163,4 @@ function PvtCarStandardCOA() {
         </>
     );
 }
-export default PvtCarStandardCOA;
+export default MotorMonthlyFixPayment;

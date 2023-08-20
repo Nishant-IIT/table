@@ -1,13 +1,13 @@
 import { HotTable } from '@handsontable/react';
 import { registerAllModules } from 'handsontable/registry';
 import 'handsontable/dist/handsontable.full.min.css';
-import { pvtCarStandardCOAFormat } from '../Data/Data';
+import { travelStandardCOAFormat } from '../Data/Data';
 import React, { useEffect, useRef, useState } from 'react';
 
 // register Handsontable's modules  
 registerAllModules();
 
-function PvtCarStandardCOA() {
+function TravelStandardCOA() {
     const hotRef = useRef(null);
     const [output, setOutput] = useState('Data will load from server');
     const [isAutosave, setIsAutosave] = useState(false);
@@ -61,12 +61,12 @@ function PvtCarStandardCOA() {
     });
     return (
         <>
-
+        
             <HotTable
                 ref={hotRef}
-                data={pvtCarStandardCOAFormat}
+                data={travelStandardCOAFormat}
                 rowHeaders={true}
-                colHeaders={['Approval Sr No', 'Channel', 'Sub-Channel', 'Branch Location', 'Location Category', 'LOB', '(Product)', 'Business Type', 'Make', 'Model', 'Cubic Capacity', 'Segment', 'VehicleClass', 'Fuel Type', 'Section Text ', 'RTO State', 'RTO', 'With CPA', 'NCB', 'Vehicle Age Cat', 'Ensure Grid Applicability', 'Lower Discount', 'Upper Discount', 'Business Slab', 'Retentions %', 'Approval Grid for OD Portion', 'Approval Grid for TP Portion', 'Approval Grid for Per Policy ', 'Created By', 'Created By Code', 'Approved By', 'Approved By Code', 'Rejected By', 'Rejected By Code', 'Created On', 'Rejected On', 'Approved On', 'Modified On', 'Status']}
+                colHeaders={['Approval Sr No', 'Channel', 'Sub-Channel', 'Branch Location', 'Location Category', 'LOB', '(Product)', 'Business Type', 'Segment', 'Sum Insured', 'Times Renewed Ct Cat', 'LOB Loc. Cat (P,SP,NP)', 'Product_cd', 'Master Policy No', 'Master Policy Type', 'Insured Age', 'Plan Name', 'Addon - VAS', 'Trip Tenure Category', 'GPW (x to y, >y)', 'Retention % (x to y, >y)', 'Approval Grid', 'Approval Grid for Per Policy ', 'Created By', 'Created By Code', 'Approved By', 'Approved By Code', 'Rejected By', 'Rejected By Code', 'Created On', 'Rejected On', 'Approved On', 'Modified On', 'Status']}
                 height="auto"
                 fixedRowsTop={1}
                 licenseKey="non-commercial-and-evaluation" // for non-commercial use only
@@ -111,79 +111,59 @@ function PvtCarStandardCOA() {
                         "readOnly": true
                     },
                     {
-                        "data": "Make",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Model",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Cubic Capacity",
-                        "readOnly": true
-                    },
-                    {
                         "data": "Segment",
                         "readOnly": true
                     },
                     {
-                        "data": "VehicleClass",
+                        "data": "Sum Insured",
                         "readOnly": true
                     },
                     {
-                        "data": "Fuel Type",
+                        "data": "Times Renewed Ct Cat",
                         "readOnly": true
                     },
                     {
-                        "data": "Section Text ",
+                        "data": "LOB Loc. Cat (P,SP,NP)",
                         "readOnly": true
                     },
                     {
-                        "data": "RTO State",
+                        "data": "Product_cd",
                         "readOnly": true
                     },
                     {
-                        "data": "RTO",
+                        "data": "Master Policy No",
                         "readOnly": true
                     },
                     {
-                        "data": "With CPA",
+                        "data": "Master Policy Type",
                         "readOnly": true
                     },
                     {
-                        "data": "NCB",
+                        "data": "Insured Age",
                         "readOnly": true
                     },
                     {
-                        "data": "Vehicle Age Cat",
+                        "data": "Plan Name",
                         "readOnly": true
                     },
                     {
-                        "data": "Ensure Grid Applicability",
+                        "data": "Addon - VAS",
                         "readOnly": true
                     },
                     {
-                        "data": "Lower Discount",
+                        "data": "Trip Tenure Category",
                         "readOnly": true
                     },
                     {
-                        "data": "Upper Discount",
+                        "data": "GPW (x to y, >y)",
                         "readOnly": true
                     },
                     {
-                        "data": "Business Slab",
+                        "data": "Retention % (x to y, >y)",
                         "readOnly": true
                     },
                     {
-                        "data": "Retentions %",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approval Grid for OD Portion",
-                        "readOnly": true
-                    },
-                    {
-                        "data": "Approval Grid for TP Portion",
+                        "data": "Approval Grid",
                         "readOnly": true
                     },
                     {
@@ -238,7 +218,7 @@ function PvtCarStandardCOA() {
                 }
             />
             <div className="controls">
-                <button id="export-file" onClick={(...args) => buttonClickCallback(...args)}>Download</button>
+            <button id="export-file" onClick={(...args) => buttonClickCallback(...args)}>Download</button>
             </div>
             <div className="controls">
                 <button id="save" className="button button--primary button--blue" onClick={(...args) => saveClickCallback(...args)}>Save data</button>
@@ -251,4 +231,4 @@ function PvtCarStandardCOA() {
         </>
     );
 }
-export default PvtCarStandardCOA;
+export default TravelStandardCOA;
