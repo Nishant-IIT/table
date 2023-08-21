@@ -25,7 +25,7 @@ function OtherThanMotorPolicySpecific() {
     };
 
     useEffect(() => {
-        const hot = hotRef.current.hotInstance;
+        const hot = hotRef.current?.hotInstance;
         const exportPlugin = hot.getPlugin('exportFile');
         // eslint-disable-next-line react-hooks/exhaustive-deps
         buttonClickCallback = () => {
