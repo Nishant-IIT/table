@@ -1,4 +1,4 @@
-import { HotTable } from '@handsontable/react';
+import { HotColumn, HotTable } from '@handsontable/react';
 import { registerAllModules } from 'handsontable/registry';
 import 'handsontable/dist/handsontable.full.min.css';
 import { pvtCarStandardCOAFormat } from '../Data/Data';
@@ -6,6 +6,14 @@ import React, { useEffect, useRef, useState } from 'react';
 
 // register Handsontable's modules  
 registerAllModules();
+
+// const ScoreRenderer = (props) => {
+//     const { value } = props;
+//     const color = value > 1 && value < 100 ? '#2ECC40' : '#FF4136' ;
+//     return (
+//         <span style={{ color }}>{value}</span>
+//     );
+// };
 
 function PvtCarStandardCOA() {
     const hotRef = useRef(null);
@@ -81,11 +89,26 @@ function PvtCarStandardCOA() {
                     {
                         "data": "Approval Sr No",
                         "readOnly": false,
-                        "isRequired": true
+                        "isRequired": true,
+                        "type": 'numeric'
                     },
                     {
-                        "data": "Channel",
-                        "readOnly": true
+                        "data": "Dates",
+                        "readOnly": false,
+                        "type": 'date',
+                        "dateFormat": 'MM/DD/YYYY',
+                        "correctFormat": true,
+                        "defaultDate": '01/01/1900',
+                        "datePickerConfig": {
+                            // First day of the week (0: Sunday, 1: Monday, etc)
+                            "firstDay": 0,
+                            "showWeekNumber": true,
+                            "licenseKey": 'non-commercial-and-evaluation',
+                            // disableDayFn(date) {
+                            //     // Disable Sunday and Saturday
+                            //     return date.getDay() === 0 || date.getDay() === 6;
+                            // }
+                        }
                     },
                     {
                         "data": "Sub-Channel",
@@ -195,10 +218,6 @@ function PvtCarStandardCOA() {
                         "readOnly": true
                     },
                     {
-                        "data": "Retentions %",
-                        "readOnly": true
-                    },
-                    {
                         "data": "Approval Grid for OD Portion",
                         "readOnly": false,
                         type: 'numeric'
@@ -212,6 +231,7 @@ function PvtCarStandardCOA() {
                         "data": "Approval Grid for Per Policy ",
                         "readOnly": false,
                         type: 'numeric'
+
 
                     },
                     {
@@ -261,8 +281,16 @@ function PvtCarStandardCOA() {
                 ]
                 }
                 licenseKey="non-commercial-and-evaluation" // for non-commercial use only
-            />
-                
+            >
+                {/* {columnHeaders.map((header) => (
+                    <HotColumn key={header} data={header}>
+                        {header === 'Lower Discount' ? (
+                            <ScoreRenderer hot-renderer />
+                        ) : <hot-renderer />}
+                    </HotColumn>
+                ))} */}
+            </HotTable>
+
             <div className="controls">
                 <button id="export-file" onClick={(...args) => buttonClickCallback(...args)}>Download</button>
             </div>
