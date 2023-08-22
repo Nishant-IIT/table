@@ -80,7 +80,8 @@ function CvStandardCOA() {
                 columns={[
                     {
                         "data": "Approval Sr No",
-                        "readOnly": true
+                        "readOnly": false,
+                        "isRequired": true
                     },
                     {
                         "data": "Channel",
@@ -103,12 +104,11 @@ function CvStandardCOA() {
                         "readOnly": true
                     },
                     {
-                        "data": "(Product)",
-                        "readOnly": true
-                    },
-                    {
                         "data": "Business Type",
-                        "readOnly": true
+                        "readOnly": false,
+                        "type": 'dropdown',
+                        "source": ['All', 'Brand New', 'Roll Over', 'Renewal']
+
                     },
                     {
                         "data": "Make",
@@ -124,7 +124,9 @@ function CvStandardCOA() {
                     },
                     {
                         "data": "Segment",
-                        "readOnly": true
+                        "readOnly": false,
+                        "type": 'dropdown',
+                        "source": ['All', 'Compact', 'Mpv Suv', 'Mid Size','Ultra High End','Mini','High End','Quadricycle','Rest All']
                     },
                     {
                         "data": "VehicleClass",
@@ -132,35 +134,51 @@ function CvStandardCOA() {
                     },
                     {
                         "data": "Fuel Type",
-                        "readOnly": true
+                        "readOnly": false,
+                        "type": 'dropdown',
+                        "source": ['All', 'Diesel', 'CNG', 'Electric','Other Than Diesel']
                     },
                     {
                         "data": "Section Text ",
-                        "readOnly": true
+                        "readOnly": false,
+                        "type": 'dropdown',
+                        "source": ['Package', 'SAOD', 'SATP']
                     },
                     {
                         "data": "RTO State",
-                        "readOnly": true
+                        "readOnly": false,
+                        "type": 'dropdown',
+                        "source": ['ROWB', 'Kolkata', 'Pune', 'Nagpur', 'Ahmedabad', 'ROGJ', 'Rajkot', 'Surat', 'Baroda', 'Mumbai', 'Indore', 'UP1', 'ROOD', 'ROE', 'Andaman & Nicobar Islands', 'ROTN', 'Cochin', 'UP3', 'Himachal Pradesh', 'Jammu & Kashmir', 'Uttarakhand', 'Haryana', 'Goa', 'UP2', 'Delhi', 'Hyderabad', 'Andra Pradesh', 'Daman & Diu', 'Chhattisgarh', 'Chennai', 'Pondicherry', 'Vijaywada', 'Vishakapatnam', 'Telengana', 'Kerala', 'Jaipur', 'Bangalore', 'Coimbatore', 'Bhubaneshwar', 'Jharkhand', 'Chandigarh', 'Bihar', 'ROE', 'ROE', 'ROE', 'ROE', 'ROE', 'ROE', 'ROE', 'KA1', 'KA2', 'MP1', 'MP2', 'MP3', 'PB1', 'PB2', 'RJ1', 'RJ2', 'RJ3', 'RJ4', 'RJ5', 'ROM1', 'ROM2', 'ROM3', 'ROM4', 'All', 'Dadra & Nagar Haveli', 'Sikkim', 'Arunachal Pradesh', 'Assam', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Tripura', 'Punjab', 'Rajasthan', 'Uttar Pradesh', 'West Bengal', 'Orissa', 'Madhya Pradesh', 'Gujrat', 'Maharashtra', 'Karnataka', 'Tamil Nadu', 'Daman And Diu', 'Rest All']
                     },
                     {
                         "data": "RTO",
-                        "readOnly": true
+                        "readOnly": false,
+                        "type": 'dropdown',
+                        "source": ['ROWB', 'Kolkata', 'Pune', 'Nagpur', 'Ahmedabad', 'ROGJ', 'Rajkot', 'Surat', 'Baroda', 'Mumbai', 'Indore', 'UP1', 'ROOD', 'ROE', 'Andaman & Nicobar Islands', 'ROTN', 'Cochin', 'UP3', 'Himachal Pradesh', 'Jammu & Kashmir', 'Uttarakhand', 'Haryana', 'Goa', 'UP2', 'Delhi', 'Hyderabad', 'Andra Pradesh', 'Daman & Diu', 'Chhattisgarh', 'Chennai', 'Pondicherry', 'Vijaywada', 'Vishakapatnam', 'Telengana', 'Kerala', 'Jaipur', 'Bangalore', 'Coimbatore', 'Bhubaneshwar', 'Jharkhand', 'Chandigarh', 'Bihar', 'ROE', 'ROE', 'ROE', 'ROE', 'ROE', 'ROE', 'ROE', 'KA1', 'KA2', 'MP1', 'MP2', 'MP3', 'PB1', 'PB2', 'RJ1', 'RJ2', 'RJ3', 'RJ4', 'RJ5', 'ROM1', 'ROM2', 'ROM3', 'ROM4', 'All', 'Dadra & Nagar Haveli', 'Sikkim', 'Arunachal Pradesh', 'Assam', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Tripura', 'Punjab', 'Rajasthan', 'Uttar Pradesh', 'West Bengal', 'Orissa', 'Madhya Pradesh', 'Gujrat', 'Maharashtra', 'Karnataka', 'Tamil Nadu', 'Daman And Diu', 'Rest All']
                     },
                     {
                         "data": "With CPA",
-                        "readOnly": true
+                        "readOnly": false,
+                        "type": 'dropdown',
+                        "source": ['All', 'Yes', 'No']
                     },
                     {
                         "data": "NCB",
-                        "readOnly": true
+                        "readOnly": false,
+                        "type": 'dropdown',
+                        "source": ['All', 'Yes', 'No']
                     },
                     {
                         "data": "Vehicle Age Cat",
-                        "readOnly": true
+                        "readOnly": false,
+                        "type": 'dropdown',
+                        "source": ['All', '<=3 Yrs', '>3 Yrs']
                     },
                     {
                         "data": "Ensure Grid Applicability",
-                        "readOnly": true
+                        "readOnly": false,
+                        "type": 'dropdown',
+                        "source": ['Yes', 'No']
                     },
                     {
                         "data": "Lower Discount",
