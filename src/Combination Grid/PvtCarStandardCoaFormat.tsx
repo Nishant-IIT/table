@@ -7,13 +7,13 @@ import React, { useEffect, useRef, useState } from 'react';
 // register Handsontable's modules  
 registerAllModules();
 
-// const ScoreRenderer = (props) => {
-//     const { value } = props;
-//     const color = value > 1 && value < 100 ? '#2ECC40' : '#FF4136' ;
-//     return (
-//         <span style={{ color }}>{value}</span>
-//     );
-// };
+const ScoreRenderer = (props) => {
+    const { value } = props;
+    const color = value > 1 && value < 100 ? '#2ECC40' : '#FF4136' ;
+    return (
+        <span style={{ color }}>{value}</span>
+    );
+};
 
 function PvtCarStandardCOA() {
     const hotRef = useRef(null);
@@ -232,7 +232,6 @@ function PvtCarStandardCOA() {
                         "readOnly": false,
                         type: 'numeric'
 
-
                     },
                     {
                         "data": "Created By",
@@ -282,13 +281,13 @@ function PvtCarStandardCOA() {
                 }
                 licenseKey="non-commercial-and-evaluation" // for non-commercial use only
             >
-                {/* {columnHeaders.map((header) => (
+                {columnHeaders.map((header) => (
                     <HotColumn key={header} data={header}>
                         {header === 'Lower Discount' ? (
                             <ScoreRenderer hot-renderer />
-                        ) : <hot-renderer />}
+                        ) : <HotColumn data="{header}" />}
                     </HotColumn>
-                ))} */}
+                ))}
             </HotTable>
 
             <div className="controls">
